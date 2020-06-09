@@ -1,0 +1,60 @@
+{
+    "name": "baseball",
+    "components":[
+        {
+            "type":"transform",
+            "id":"$mainT",
+            "init":{
+                "position":{
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "scale":{
+                    "x": 1.6,
+                    "y": 1
+                }
+            }
+        },
+        {
+            "type": "animation",
+            "id": "$testanimation",
+            "init": {"duration": 0.5, "actions": ["$sprite_ball_spin", "$testCallback"], "displayedAction": "$sprite_ball_spin", "loops":true}
+        },
+        {
+            "type": "SpriteAction",
+            "id": "$sprite_ball_spin",
+            "init": {"start": 0.0, "end": 1.0, "name": "baseball_", "folder": "./game/sprites/scout/baseball_rotate", "framecount": 18}
+        },
+        {
+            "type": "CallbackAction",
+            "id": "$testCallback",
+            "init": {"start": 0.5, "end": 0.6, "parentAnimation": "$testanimation", "identifier": "ballCallback"}
+        },
+        {
+            "type": "plane",
+            "init": {
+                "position":{
+                    "x": 0,
+                    "y": 0
+                },
+                "scale":{
+                    "x": 1,
+                    "y": 1
+                },
+                "texture": "$testanimation"
+            }
+        },
+        {
+            "type": "dynamicbody",
+            "init": {"transform":"$mainT", "lockRotation": false}
+        },
+        {
+            "type": "circlefixture",
+            "init": {"radius": 0.4, "position": {"x": 0.0, "y": 0.0}, "density": 0.1, "friction": 0.1, "restitution": 0.8}
+        },
+        {
+            "type": "InputMapping",
+            "init": {"controllerNum": 0, "mapping": [{"STICK_L_X": "leftAxis"},{"STICK_L_Y": "leftAxis"}]}
+        }
+    ]
+}

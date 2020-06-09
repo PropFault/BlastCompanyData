@@ -1,0 +1,4 @@
+{
+    "componentDirectory": "./components",
+    "components":["AnimationComponent", "Box2DComponent", "libInputComponent.so"]
+}

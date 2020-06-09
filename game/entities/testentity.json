@@ -1,0 +1,56 @@
+{
+    "name": "TestEntity:)",
+    "components":[
+        {
+            "type": "transform",
+            "id": "$maintransform",
+            "init": {
+                "position":{ 
+                    "x": 0,
+                    "y": 3
+                },
+                "scale":{
+                    "x": 6,
+                    "y": 1
+                }
+            }
+        },
+        {
+            "type": "texture",
+            "id": "$sdllogo",
+            "init": {"filepath": "./sdl_logo.png"}
+        },
+        {
+            "type": "animation",
+            "id": "$testanimation",
+            "init": {"duration": 4.0, "actions": ["$sprite_intro_action"], "displayedAction": "$sprite_intro_action"}
+        },
+        {
+            "type": "SpriteAction",
+            "id": "$sprite_intro_action",
+            "init": {"start": 0.0, "end": 1.0, "name": "scout_intro_transparent_", "folder": "./game/sprites/scout_intro", "framecount": 93}
+        },
+        {
+            "type": "plane",
+            "init": {
+                "position":{
+                    "x": 0,
+                    "y": 0
+                },
+                "scale":{
+                    "x": 2,
+                    "y": 1
+                },
+                "texture": "$testanimation"
+            }
+        },
+        {
+            "type": "staticbody",
+            "init": {"transform":"$maintransform"}
+        },
+        {
+            "type": "boxfixture",
+            "init": {"width": 12, "height":1, "density": 1.0, "friction": 0.2, "restitution": 0.4}
+        }
+    ]
+}
